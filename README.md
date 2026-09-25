@@ -1,4 +1,4 @@
-Project Title: 868 MHz Semi-Lumped Chebyshev Bandpass Filter Design and Simulation
+###Project Title: 868 MHz Semi-Lumped Chebyshev Bandpass Filter Design and Simulation
 
 Project Description
 This repository contains the theoretical design, mathematical modeling, and S-parameter simulation of an 868 MHz RF bandpass filter. The project bridges the gap between theoretical RF mathematics and physical PCB implementation. It is designed as a foundational step for an automated empirical validation pipeline, where simulated data will be compared against real-world measurements captured via a NanoVNA and Python-based SCPI automation.
