@@ -1,0 +1,10 @@
+# Altium generated / local-only
+*.PrjPcbStructure
+History/
+Project Logs*/
+Project Outputs/
+__Previews/
+*.SchDocPreview
+*.PcbDocPreview
+*.PcbDoc.htm
+*.SchDoc.htm
