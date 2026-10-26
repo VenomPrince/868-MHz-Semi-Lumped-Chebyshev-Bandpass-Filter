@@ -1,0 +1,415 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD26\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">17/10/2026</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">14.31.58</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc">C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">21</td></tr>
+</table>
+</td>
+</table><a name="IDA03LT01MPM5XBAAPHN51CTNMQKTDTUBL5JMOACNMCOBYMZ3QFLNF"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGFM3BUZZLTFYHYON2Y0K5BP3IFMCVJGHIXZFR5C4X4JXSXDGFLI">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJAPB2QYFUVTPN3IHPARROTB1LNNGODI5T1A5TUJQH0ISRBAN1IJD">Clearance Constraint (Gap=0.5mm) (InNet('RF')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2HZQCMGRDPL3BUHBLBAHCSIWZEP34DE2VKDEJGCXC4CDZ5S3A1RC">Clearance Constraint (Gap=0.5mm) (InNetClass('RF_Traces')),(All)</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPND2U2N2LYPAHV1KX5TPQ1P3NPH1NKMTTYVX5ZGYW3D5YRAEVERI">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNJMHKFPHH1VTGYLMMKQ2PK5WLJQB1H1XT1CYEIKA0F5KAC30ZQCI">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIATYEWXPFWZWJLQ3UL3J0CLHTBVJCTMH5BOI5KJ55PHA4BJG4PEL">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDISZFP2QWLA1SOHLFAPNNE01FBBMJOM3TUJSJAFF4PGPBOA0LMSWF">Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR3AIIR2HARXEOAEBYG3HPVLYIDGXRIDVVMMZKWIH5H0SENIJKEFK">Width Constraint (Min=0.254mm) (Max=3.1mm) (Preferred=3.098mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWTR4MSEHUBTLBDWIBFKUY0KCSNC4PGS3GEM2AWLSWYHE0HKXSSEM">Routing Topology Rule(Topology=Shortest) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1Q4MZEXSR2JFMBXIH4S3S0PFDPBBLSPAYWVQFBUPITE2PFAUB5N">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFO3O2QOLGJHHNUNLMOT4TMBZLTP4ZVLR54JJBFBEMLEHBYT4CQD">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID43ASYVDV3OQ1DXZ3YV3PXH0CWC4OU00QGWZ0Y4ELQQKWOZ0M2YPJ">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIIKF3UG0XVR0IASVXQUZ1ERU2JRQNFX15G5LH0CYR1QP5GT3SCKL">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDV4BYUC5GOCTGHSVUL3EMH4UGKCGQBXQKKC5UGVIH40CWU3ID0MAG">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID5LZ05KE4KSIVL2UL01OVX1U5VPYNEGX3C4BNFQO0IXRZHQ1QN3AG">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMY1KEZGUAFWUBBDAG2QEDKFPEO4V3NZSVPZPEJIKMCOTVRXGJPWB">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV4AO32ZNTU44C2TSWHCKEBRA5PPA5GOZ1FQWLZJX1NT5GW1HWDPB">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">21</td>
+</tr>
+</table><br><a name="ID2HZQCMGRDPL3BUHBLBAHCSIWZEP34DE2VKDEJGCXC4CDZ5S3A1RC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.5mm) (InNetClass('RF_Traces')),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1281.717mil|Location2.X=1302.652mil|Location1.Y=698.115mil|Location2.Y=730.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1281.717mil|Location2.X=1302.652mil|Location1.Y=698.115mil|Location2.Y=730.468mil|Absolute=True">Clearance Constraint: (0.347mm &lt; 0.5mm) Between Pad C4-1(32.458mm,18.288mm) on Top Layer And Track (34.544mm,18.288mm)(36.093mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1274.611mil|Location2.X=1295.546mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1274.611mil|Location2.X=1295.546mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True">Clearance Constraint: (0.378mm &lt; 0.5mm) Between Pad C4-2(33.02mm,18.288mm) on Top Layer And Pad J1-1(31.877mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2282.249mil|Location2.X=2303.184mil|Location1.Y=698.119mil|Location2.Y=730.471mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2282.249mil|Location2.X=2303.184mil|Location1.Y=698.119mil|Location2.Y=730.471mil|Absolute=True">Clearance Constraint: (0.32mm &lt; 0.5mm) Between Pad C5-1(57.885mm,18.288mm) on Top Layer And Track (59.944mm,18.288mm)(64.135mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2276.816mil|Location2.X=2297.751mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2276.816mil|Location2.X=2297.751mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True">Clearance Constraint: (0.32mm &lt; 0.5mm) Between Pad C5-2(58.447mm,18.288mm) on Top Layer And Track (54.853mm,18.288mm)(56.388mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2277.098mil|Location2.X=2298.033mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2277.098mil|Location2.X=2298.033mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True">Clearance Constraint: (0.306mm &lt; 0.5mm) Between Pad C5-2(58.447mm,18.288mm) on Top Layer And Track (56.388mm,18.288mm)(56.402mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3572.249mil|Location2.X=3593.184mil|Location1.Y=698.115mil|Location2.Y=730.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3572.249mil|Location2.X=3593.184mil|Location1.Y=698.115mil|Location2.Y=730.468mil|Absolute=True">Clearance Constraint: (0.32mm &lt; 0.5mm) Between Pad C6-1(90.651mm,18.288mm) on Top Layer And Track (92.71mm,18.288mm)(94.259mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.816mil|Location2.X=3587.751mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.816mil|Location2.X=3587.751mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True">Clearance Constraint: (0.32mm &lt; 0.5mm) Between Pad C6-2(91.213mm,18.288mm) on Top Layer And Track (87.69mm,18.288mm)(89.154mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4571.893mil|Location2.X=4592.828mil|Location1.Y=698.638mil|Location2.Y=730.99mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4571.893mil|Location2.X=4592.828mil|Location1.Y=698.638mil|Location2.Y=730.99mil|Absolute=True">Clearance Constraint: (0.356mm &lt; 0.5mm) Between Pad C7-1(116.024mm,18.288mm) on Top Layer And Pad J2-1(117.145mm,18.301mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4566.284mil|Location2.X=4587.22mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4566.284mil|Location2.X=4587.22mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True">Clearance Constraint: (0.293mm &lt; 0.5mm) Between Pad C7-2(116.586mm,18.288mm) on Top Layer And Track (113.019mm,18.288mm)(114.554mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4566.567mil|Location2.X=4587.502mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4566.567mil|Location2.X=4587.502mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True">Clearance Constraint: (0.279mm &lt; 0.5mm) Between Pad C7-2(116.586mm,18.288mm) on Top Layer And Track (114.554mm,18.288mm)(114.568mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4569.708mil|Location2.X=4590.643mil|Location1.Y=698.462mil|Location2.Y=730.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4569.708mil|Location2.X=4590.643mil|Location1.Y=698.462mil|Location2.Y=730.827mil|Absolute=True">Clearance Constraint: (0.467mm &lt; 0.5mm) Between Pad J2-1(117.145mm,18.301mm) on Top Layer And Track (113.019mm,18.288mm)(114.554mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4569.99mil|Location2.X=4590.925mil|Location1.Y=698.463mil|Location2.Y=730.828mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4569.99mil|Location2.X=4590.925mil|Location1.Y=698.463mil|Location2.Y=730.828mil|Absolute=True">Clearance Constraint: (0.453mm &lt; 0.5mm) Between Pad J2-1(117.145mm,18.301mm) on Top Layer And Track (114.554mm,18.288mm)(114.568mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2279.532mil|Location2.X=2300.468mil|Location1.Y=698.117mil|Location2.Y=730.469mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2279.532mil|Location2.X=2300.468mil|Location1.Y=698.117mil|Location2.Y=730.469mil|Absolute=True">Clearance Constraint: (0.458mm &lt; 0.5mm) Between Track (54.853mm,18.288mm)(56.388mm,18.288mm) on Top Layer And Track (59.944mm,18.288mm)(64.135mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2279.815mil|Location2.X=2300.75mil|Location1.Y=698.117mil|Location2.Y=730.469mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2279.815mil|Location2.X=2300.75mil|Location1.Y=698.117mil|Location2.Y=730.469mil|Absolute=True">Clearance Constraint: (0.444mm &lt; 0.5mm) Between Track (56.388mm,18.288mm)(56.402mm,18.288mm) on Top Layer And Track (59.944mm,18.288mm)(64.135mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3569.532mil|Location2.X=3590.468mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3569.532mil|Location2.X=3590.468mil|Location1.Y=698.115mil|Location2.Y=730.467mil|Absolute=True">Clearance Constraint: (0.458mm &lt; 0.5mm) Between Track (87.69mm,18.288mm)(89.154mm,18.288mm) on Top Layer And Track (92.71mm,18.288mm)(94.259mm,18.288mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDIIKF3UG0XVR0IASVXQUZ1ERU2JRQNFX15G5LH0CYR1QP5GT3SCKL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1283.312mil|Location2.X=1294.562mil|Location1.Y=706.501mil|Location2.Y=717.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1283.312mil|Location2.X=1294.562mil|Location1.Y=706.501mil|Location2.Y=717.751mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.182mm &lt; 0.254mm) Between Pad C4-1(32.458mm,18.288mm) on Top Layer And Pad C4-2(33.02mm,18.288mm) on Top Layer [Top Solder] Mask Sliver [0.182mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2284.375mil|Location2.X=2295.625mil|Location1.Y=722.249mil|Location2.Y=733.499mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2284.375mil|Location2.X=2295.625mil|Location1.Y=722.249mil|Location2.Y=733.499mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.182mm &lt; 0.254mm) Between Pad C5-1(57.885mm,18.288mm) on Top Layer And Pad C5-2(58.447mm,18.288mm) on Top Layer [Top Solder] Mask Sliver [0.182mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3574.375mil|Location2.X=3585.625mil|Location1.Y=722.249mil|Location2.Y=733.499mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3574.375mil|Location2.X=3585.625mil|Location1.Y=722.249mil|Location2.Y=733.499mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.182mm &lt; 0.254mm) Between Pad C6-1(90.651mm,18.288mm) on Top Layer And Pad C6-2(91.213mm,18.288mm) on Top Layer [Top Solder] Mask Sliver [0.182mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4573.312mil|Location2.X=4584.562mil|Location1.Y=706.501mil|Location2.Y=717.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4573.312mil|Location2.X=4584.562mil|Location1.Y=706.501mil|Location2.Y=717.751mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.182mm &lt; 0.254mm) Between Pad C7-1(116.024mm,18.288mm) on Top Layer And Pad C7-2(116.586mm,18.288mm) on Top Layer [Top Solder] Mask Sliver [0.182mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID5LZ05KE4KSIVL2UL01OVX1U5VPYNEGX3C4BNFQO0IXRZHQ1QN3AG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4591.096mil|Location2.X=4598.762mil|Location1.Y=850.16mil|Location2.Y=857.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4591.096mil|Location2.X=4598.762mil|Location1.Y=850.16mil|Location2.Y=857.827mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "1.5pF" (110.871mm,20.93mm) on Top Overlay And Track (116.305mm,21.54mm)(117.985mm,21.54mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4577.176mil|Location2.X=4584.843mil|Location1.Y=589.189mil|Location2.Y=596.856mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\868 MHz RF microstrip filter\PCB1.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4577.176mil|Location2.X=4584.843mil|Location1.Y=589.189mil|Location2.Y=596.856mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "J2" (114.377mm,14.605mm) on Top Overlay And Track (116.305mm,15.063mm)(117.985mm,15.063mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

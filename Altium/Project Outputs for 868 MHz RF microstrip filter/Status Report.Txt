@@ -1,0 +1,10 @@
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [[No Variations]] of Project [868 MHz RF microstrip filter.PrjPcb]
+   Generated File[Bill of Materials-868 MHz RF microstrip filter.xlsx]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 15.54.30 On 17/10/2026
