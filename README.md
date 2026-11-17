@@ -24,7 +24,30 @@ This repository contains the simulation, schematic, and PCB layout for a 3rd-ord
 - **Grounding:** Solid bottom ground plane with top-layer ground pour. Stitched with GND vias.
 
 ## Manufacturing
-The board is designed to be fabricated by JLCPCB using standard 1.6mm FR-4, 1oz copper, and HASL finish. The `Gerber.zip` file in the `/Altium` directory contains the necessary fabrication outputs.
+The board is designed to be fabricated by own self using standard 1.6mm FR-4, 1oz copper, and HASL finish. The `Gerber.zip` file in the `/Altium` directory contains the necessary fabrication outputs.
+
+## Soldering and test
+Soldering was completed with no issues and test was done with nanoVNA, Due to limited bandwith of nanoVNA .i.e 0 to 900Mhz, the visual is cutted in between but it can be clearly seen that the board was success.
+
+![Board](NanoVNA%20Result/Board.jpeg)
+
+![NanoVNA Result 1](NanoVNA%20Result/NanoVNA%20Result%20(1).jpeg)
+
+![NanoVNA Result 2](NanoVNA%20Result/NanoVNA%20Result%20(2).jpeg)
+
+![NanoVNA Result 3](NanoVNA%20Result/NanoVNA%20Result%20(3).jpeg)
+
+![NanoVNA Result 4](NanoVNA%20Result/NanoVNA%20Result%20(4).jpeg)
+
+![NanoVNA Result 5](NanoVNA%20Result/NanoVNA%20Result%20(5).jpeg)
+
+![NanoVNA Result 6](NanoVNA%20Result/NanoVNA%20Result%20(6).jpeg)
+
+![NanoVNA Result 7](NanoVNA%20Result/NanoVNA%20Result%20(7).jpeg)
+
+![NanoVNA Result 8](NanoVNA%20Result/NanoVNA%20Result%20(8).jpeg)
+
+![NanoVNA Result 9](NanoVNA%20Result/NanoVNA%20Result%20(9).jpeg)
 
 ## Simulation Results
 Insertion loss (S21) in the passband is approximately -3.5 dB to -4 dB due to standard FR-4 dielectric losses. Return loss (S11) is below -15 dB across the passband.
