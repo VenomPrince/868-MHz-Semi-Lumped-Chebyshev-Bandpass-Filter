@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| ![NanoVNA Result 1](NanoVNA%20Result/NanoVNA%20Result%20(1).jpeg) | ![Graphs](Qucs/Graphs.png.jpeg) |
+| ![NanoVNA Result 1](NanoVNA%20Result/NanoVNA%20Result%20(1).jpeg) | ![Graphs](Qucs/Graphs.png) |
 ![NanoVNA Result 5](NanoVNA%20Result/NanoVNA%20Result%20(5).jpeg)
 
 ## Overview
