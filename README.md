@@ -1,5 +1,11 @@
 # 868 MHz Semi-Lumped Chebyshev Bandpass Filter
 
+![Board](NanoVNA%20Result/Board.jpeg)
+
+![NanoVNA Result 1](NanoVNA%20Result/NanoVNA%20Result%20(1).jpeg)
+
+![NanoVNA Result 5](NanoVNA%20Result/NanoVNA%20Result%20(5).jpeg)
+
 ## Overview
 This repository contains the simulation, schematic, and PCB layout for a 3rd-order Chebyshev bandpass filter centered at 868 MHz. The target passband is 818 MHz to 918 MHz with a 50-ohm system impedance.
 
@@ -29,17 +35,11 @@ The board is designed to be fabricated by own self using standard 1.6mm FR-4, 1o
 ## Soldering and test
 Soldering was completed with no issues and test was done with nanoVNA, Due to limited bandwith of nanoVNA .i.e 0 to 900Mhz, the visual is cutted in between but it can be clearly seen that the board was success.
 
-![Board](NanoVNA%20Result/Board.jpeg)
-
-![NanoVNA Result 1](NanoVNA%20Result/NanoVNA%20Result%20(1).jpeg)
-
 ![NanoVNA Result 2](NanoVNA%20Result/NanoVNA%20Result%20(2).jpeg)
 
 ![NanoVNA Result 3](NanoVNA%20Result/NanoVNA%20Result%20(3).jpeg)
 
 ![NanoVNA Result 4](NanoVNA%20Result/NanoVNA%20Result%20(4).jpeg)
-
-![NanoVNA Result 5](NanoVNA%20Result/NanoVNA%20Result%20(5).jpeg)
 
 ![NanoVNA Result 6](NanoVNA%20Result/NanoVNA%20Result%20(6).jpeg)
 
