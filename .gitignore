@@ -1,10 +1,17 @@
-# Altium generated / local-only
-*.PrjPcbStructure
-History/
-Project Logs*/
+# Altium generated outputs
 Project Outputs/
+History/
 __Previews/
-*.SchDocPreview
-*.PcbDocPreview
-*.PcbDoc.htm
-*.SchDoc.htm
+Project Logs/
+*.BomDoc
+*.OutJob
+*.PrjPcbStructure
+
+# Temporary/Backup files
+Copy of PCB1.PcbDoc
+~*.PcbDoc
+
+# OS/Junk files
+Graphwar.url
+.DS_Store
+Thumbs.db
