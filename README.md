@@ -2,20 +2,28 @@
 
 ![Board](NanoVNA%20Result/Board.jpeg)
 
-## Result
+## Results
 
-The result was very good overall. The simulated insertion loss (S21) was **-2.85 dB**, and the real NanoVNA measurement showed **-3.33 dB**. The simulated return loss (S11) was **-21.9 dB**, and the real NanoVNA result was **-14.33 dB**.
-
-## Simulation Results
+The filter performed very close to simulation. Measured insertion loss (S21) was **-3.33 dB** vs **-2.85 dB** simulated, and measured return loss (S11) was **-14.33 dB** vs **-21.9 dB** simulated.
 
 | Parameter | Simulated | Measured (NanoVNA) |
 |---|---|---|
 | Insertion Loss (S21) | -2.85 dB | -3.33 dB |
 | Return Loss (S11) | -21.9 dB | -14.33 dB |
 
-![Simulated Insertion Loss (S21)](NanoVNA%20Result/Simulated%20Insertion%20loss%20(S21).png)
+### Insertion Loss (S21) — Simulated vs Measured
 
-![Simulation Return Loss (S11)](NanoVNA%20Result/Simulation%20Return%20Loss%20(S11).png)
+| Simulated | Measured |
+|---|---|
+| ![Simulated S21](NanoVNA%20Result/Simulated%20Insertion%20loss%20(S21).png) | ![Measured S21](NanoVNA%20Result/Insertion%20loss.jpg) |
+
+### Return Loss (S11) — Simulated vs Measured
+
+| Simulated | Measured |
+|---|---|
+| ![Simulated S11](NanoVNA%20Result/Simulation%20Return%20Loss%20(S11).png) | ![Measured S11](NanoVNA%20Result/Return%20Loss.jpg) |
+
+> **Note:** Testing was done with a NanoVNA. Due to its limited bandwidth (0 Hz – 900 MHz), the measured sweep is cut off at the upper end, but the board clearly works as designed.
 
 ## Overview
 
